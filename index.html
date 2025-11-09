@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="./image/icon.jpg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>QR Generator ✨</title>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="background">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+        <div class="shape shape4"></div>
+    </div>
+
+    <!-- Floating Particles -->
+    <div class="particles">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div id="mainContainer">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="logo-container">
+                <div class="logo-circle">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+                <div class="glow-effect"></div>
+            </div>
+            <h1 class="main-title">
+                <span class="gradient-text">QR</span> Generator
+            </h1>
+            <p class="subtitle">Transform any link into magic ✨</p>
+            
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-qrcode"></i>
+                    <span>QR Codes</span>
+                </div>
+                <div class="stat-card">
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-image"></i>
+                    <span>Thumbnails</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Input Section -->
+        <div class="input-section glass">
+            <div class="input-header">
+                <i class="fas fa-wand-magic-sparkles"></i>
+                <h2>What would you like to generate?</h2>
+            </div>
+            
+            <div class="input-wrapper">
+                <div class="input-icon">
+                    <i class="fas fa-link"></i>
+                </div>
+                <input 
+                    type="text" 
+                    id="qrInput" 
+                    placeholder="Paste YouTube link, URL, or any text..."
+                    autocomplete="off"
+                >
+                <button id="clearBtn" class="clear-btn" style="display: none;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <button id="generation" class="generate-btn">
+                <span class="btn-text">Generate Now</span>
+                <span class="btn-icon"><i class="fas fa-sparkles"></i></span>
+                <div class="btn-shine"></div>
+            </button>
+        </div>
+
+        <!-- Output Section -->
+        <div id="outputContainer" class="output-grid">
+            <!-- QR Code Card -->
+            <div class="output-card glass" id="qrCard">
+                <div class="card-header">
+                    <div class="card-icon qr-icon">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <div>
+                        <h3>QR Code</h3>
+                        <p>Scan & Share</p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div id="qrcode"></div>
+                </div>
+                <div class="card-footer">
+                    <button id="downloadQR" class="action-btn primary">
+                        <i class="fas fa-download"></i>
+                        Download
+                    </button>
+                </div>
+            </div>
+
+            <!-- YouTube Player Card -->
+            <div id="embedSection" class="output-card glass" style="display: none;">
+                <div class="card-header">
+                    <div class="card-icon yt-icon">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div>
+                        <h3>Video Player</h3>
+                        <p>Watch Now</p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="video-wrapper">
+                        <iframe id="youtubeEmbed" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thumbnail Card -->
+            <div id="thumbnailSection" class="output-card glass" style="display: none;">
+                <div class="card-header">
+                    <div class="card-icon thumb-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <div>
+                        <h3>Thumbnail</h3>
+                        <p>High Quality</p>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <img id="youtubeThumbnail" alt="YouTube Thumbnail">
+                </div>
+                <div class="card-footer">
+                    <button id="downloadThumb" class="action-btn success">
+                        <i class="fas fa-download"></i>
+                        Download
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage"></span>
+    </div>
+
+    <!-- QR Code Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+</body>
+</html>
